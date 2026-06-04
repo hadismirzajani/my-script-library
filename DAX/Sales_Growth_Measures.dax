@@ -1,0 +1,31 @@
+dax
+/*
+  =========================================
+  AUTOMATED GROWTH METRICS
+  =========================================
+  Description: Measures for CAGR and YoY (Year-over-Year) Sales Growth.
+  
+*/
+//Automated Compound Annual Growth Rate (CAGR): 
+This metric calculates the smoothed annual growth rate of your sales over a selected time period. 
+It eliminates yearly volatility to show the steady, theoretical rate at which your business grew from the starting year to the ending year.
+
+DEFINE
+    MEASURE 'Sales'[CAGR] = 
+        VAR _StartYear = CALCULATE(MIN('Date'[Year]), ALLSELECTED('Date'))
+        VAR _EndYear = CALCULATE(MAX('Date'[Year]), ALLSELECTED('Date'))
+        VAR _NumberOfYears = _EndYear - _StartYear
+        VAR _StartValue = CALCULATE([Total Sales], FILTER(ALL('Date'), 'Date'[Year] = _StartYear))
+        VAR _EndValue = CALCULATE([Total Sales], FILTER(ALL('Date'), 'Date'[Year] = _EndYear))
+        RETURN
+            IF(
+                _NumberOfYears > 0 && _StartValue > 0, 
+                POWER(DIVIDE(_EndValue, _StartValue), 1 / _NumberOfYears) - 1, 
+                BLANK()
+            )
+
+    MEASURE 'Sales'[YoY Growth %] = 
+        VAR _CurrentSales = [Total Sales]
+        VAR _PreviousSales = CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))
+        RETURN
+            DIVIDE(_CurrentSales - _PreviousSales, _PreviousSales, 0)
