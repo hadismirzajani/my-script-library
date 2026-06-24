@@ -6,6 +6,7 @@
 '   1. Open a project from PWA via File > Open as normal
 '   2. Press Alt+F8, select "SaveCurrentProject" , click Run 
 '   OR assign it to a toolbar button (instructions below or add the Macros button to quick access toolbar)
+' To make the Macro permanent, I saved the module under ProjectGlobal
 '=============================================================
  
 Option Explicit
