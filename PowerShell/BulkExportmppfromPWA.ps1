@@ -1,8 +1,8 @@
-'=============================================================
+' =============================================================
 ' BulkExportMPP_v3.bas
 ' Bulk export MS Project files from Project Online (PWA)
 ' VERSION 3 - Uses correct Enterprise Project open method
-' THIS WAS NEVER CHECKED AS I DID NOT HAVE REQUIRED API ENDPOINT ACCESS DUE TO WHICH IT BECAME A SEMI AUTOMATED JOB USING VBS (COULD NOT CONNECT TO PWA TO OPEN A FILE)
+# THIS WAS NEVER CHECKED AS I DID NOT HAVE REQUIRED API ENDPOINT ACCESS DUE TO WHICH IT BECAME A SEMI AUTOMATED JOB USING VBS (COULD NOT CONNECT TO PWA TO OPEN A FILE)
 '=============================================================
 
 Option Explicit
