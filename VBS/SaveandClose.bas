@@ -6,6 +6,7 @@ Attribute VB_Name = "Module1"
 '   1. Open a project from PWA via File > Open as normal
 '   2. Press Alt+F8, select "SaveCurrentProject", click Run
 '   OR assign it to a toolbar button (instructions below)
+' This module was saved in Global
 '=============================================================
  
 Option Explicit
