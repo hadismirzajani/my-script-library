@@ -1,3 +1,4 @@
+<#
 =====================================================================
  **Get-MySharedProjects — PMO365 Shared Project Extractor**
  A semi-automated PowerShell script that identifies and exports all PMO365 (Dataverse) projects shared with a specific user, combining both team-based and direct record-level sharing into a single clean CSV output.
