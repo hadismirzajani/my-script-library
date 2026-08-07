@@ -1,0 +1,86 @@
+<!--
+Purpose: Quick launcher for saving the 4 JSON/CSV files needed before running Get_MySharedProjects_SemiAuto.ps1
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PMO365 Data Saver</title>
+    <style>
+        body {
+            background: #0f1923;
+            color: white;
+            font-family: Segoe UI;
+            padding: 2rem;
+        }
+        h1 { margin-bottom: 0.5rem; }
+        .subtitle {
+            color: #7a8fa0;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        .card {
+            background: #172130;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            border: 1px solid #1e3045;
+        }
+        .card p { margin-bottom: 0.4rem; font-weight: 600; }
+        .card .note {
+            font-size: 0.75rem;
+            color: #7a8fa0;
+            margin-bottom: 0.5rem;
+        }
+        a {
+            color: #4a9eda;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
+        .footer {
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            color: #4a6070;
+        }
+        .footer span {
+            color: #4a9eda;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>PMO365 Data Saver</h1>
+    <p class="subtitle">Open each link, save as the filename shown, then run the PowerShell script.</p>
+
+    <div class="card">
+        <p>Step 1 — All Projects</p>
+        <div class="note">Save as: AllProjects.json</div>
+        <a href="https://cmbpmo365prod.crm6.dynamics.com/api/data/v9.2/pmo365_projects?$select=pmo365_name,pmo365_projectcode,pmo365_projectid" target="_blank">Open →</a>
+    </div>
+
+    <div class="card">
+        <p>Step 2 — My Team Memberships</p>
+        <div class="note">Save as: MyTeams.json &nbsp;|&nbsp; Replace YOUR-GUID with your UserId</div>
+        <a href="https://cmbpmo365prod.crm6.dynamics.com/api/data/v9.2/systemusers(YOUR-GUID)/teammembership_association?$select=teamid,name,teamtype" target="_blank">Open →</a>
+    </div>
+
+    <div class="card">
+        <p>Step 3 — My Direct Access</p>
+        <div class="note">Save as: MyDirectAccess.json &nbsp;|&nbsp; Replace YOUR-GUID with your UserId</div>
+        <a href="https://cmbpmo365prod.crm6.dynamics.com/api/data/v9.2/principalobjectaccessset?$filter=objecttypecode eq 'pmo365_project' and principalid eq YOUR-GUID&$select=objectid,accessrightsmask" target="_blank">Open →</a>
+    </div>
+
+    <div class="card">
+        <p>Step 4 — PMO365 Project Export</p>
+        <div class="note">Save as: PMO365Export.csv &nbsp;|&nbsp; Export from PMO365 UI → Save as CSV</div>
+        <a href="https://cmbpmo365prod.crm6.dynamics.com/main.aspx" target="_blank">Open PMO365 →</a>
+    </div>
+
+    <p class="footer">
+        After saving all 4 files to your Desktop, run
+        <span>Get_MySharedProjects_SemiAuto.ps1</span>
+    </p>
+
+</body>
+</html>
